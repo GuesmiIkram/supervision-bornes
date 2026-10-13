@@ -29,7 +29,7 @@ public class MesureService {
             throw new IllegalArgumentException("La date de début doit précéder la date de fin");
         }
         return borneId != null
-                ? mesures.findByBorneIdAndHorodatageBetweenOrderByHorodatageAsc(borneId, de, a)
+                ? mesures.findByBorne_IdAndHorodatageBetweenOrderByHorodatageAsc(borneId, de, a)
                 : mesures.findByHorodatageBetweenOrderByHorodatageAsc(de, a);
     }
 

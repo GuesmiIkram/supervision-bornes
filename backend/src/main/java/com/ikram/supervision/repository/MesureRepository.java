@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface MesureRepository extends JpaRepository<Mesure, Long> {
-    List<Mesure> findByBorneIdAndHorodatageBetweenOrderByHorodatageAsc(Long borneId, LocalDateTime debut, LocalDateTime fin);
+    List<Mesure> findByBorne_IdAndHorodatageBetweenOrderByHorodatageAsc(Long borneId, LocalDateTime debut, LocalDateTime fin);
     List<Mesure> findByHorodatageBetweenOrderByHorodatageAsc(LocalDateTime debut, LocalDateTime fin);
-    List<Mesure> findTop1ByBorneIdOrderByHorodatageDesc(Long borneId);
+    List<Mesure> findTop1ByBorne_IdOrderByHorodatageDesc(Long borneId);
 }

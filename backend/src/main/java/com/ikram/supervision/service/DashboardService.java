@@ -44,7 +44,7 @@ public class DashboardService {
     }
 
     private EtatBorne etat(Borne borne) {
-        Mesure derniere = mesures.findTop1ByBorneIdOrderByHorodatageDesc(borne.getId())
+        Mesure derniere = mesures.findTop1ByBorne_IdOrderByHorodatageDesc(borne.getId())
                 .stream().findFirst().orElse(null);
         return new EtatBorne(
                 borne.getId(),
