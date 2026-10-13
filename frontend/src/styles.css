@@ -1,0 +1,67 @@
+:root {
+  --fond: #f4f6f9;
+  --surface: #ffffff;
+  --bordure: #e2e6ec;
+  --texte: #18202b;
+  --texte-2: #5b6675;
+  --accent: #1f6feb;
+  --accent-doux: #e7f0fe;
+  --vert: #1a7f4b;
+  --orange: #b85c00;
+  --rouge: #c62828;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #0f141a;
+    --surface: #171d25;
+    --bordure: #2a323d;
+    --texte: #e6eaf0;
+    --texte-2: #9aa5b4;
+    --accent: #5b9bff;
+    --accent-doux: #1b2b44;
+    --vert: #4cc38a;
+    --orange: #f0a04b;
+    --rouge: #ff6b6b;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fond); color: var(--texte); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+h1 { font-size: 24px; margin: 0 0 4px; }
+h2 { font-size: 18px; }
+.page-sous-titre { color: var(--texte-2); margin: 0 0 20px; font-size: 14px; }
+
+.carte { background: var(--surface); border: 1px solid var(--bordure); border-radius: 12px; padding: 18px; }
+
+input, select {
+  font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--bordure);
+  background: var(--fond); color: var(--texte);
+}
+input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+.btn {
+  font: inherit; font-size: 14px; padding: 8px 14px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--bordure); background: var(--surface); color: var(--texte);
+}
+.btn:hover { border-color: var(--accent); }
+.btn:disabled { opacity: .6; cursor: default; }
+.btn-primaire { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-danger { color: var(--rouge); }
+.btn-danger:hover { border-color: var(--rouge); }
+
+.erreur { color: var(--rouge); background: color-mix(in srgb, var(--rouge) 10%, transparent); padding: 10px 12px; border-radius: 8px; }
+
+.tableau-scroll { overflow-x: auto; padding: 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--bordure); white-space: nowrap; }
+th { color: var(--texte-2); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+tbody tr:last-child td { border-bottom: none; }
+
+.badge { display: inline-block; padding: 3px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--accent-doux); color: var(--accent); }
+.statut-EN_SERVICE { background: color-mix(in srgb, var(--vert) 15%, transparent); color: var(--vert); }
+.statut-MAINTENANCE { background: color-mix(in srgb, var(--orange) 15%, transparent); color: var(--orange); }
+.statut-HORS_LIGNE, .niveau-CRITIQUE { background: color-mix(in srgb, var(--rouge) 15%, transparent); color: var(--rouge); }
+.niveau-AVERTISSEMENT { background: color-mix(in srgb, var(--orange) 15%, transparent); color: var(--orange); }

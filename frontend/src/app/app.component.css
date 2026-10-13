@@ -1,0 +1,19 @@
+.layout { display: flex; min-height: 100vh; }
+.menu {
+  width: 220px; flex-shrink: 0; padding: 20px 14px; display: flex; flex-direction: column; gap: 4px;
+  background: var(--surface); border-right: 1px solid var(--bordure);
+}
+.marque { font-weight: 700; font-size: 18px; margin: 0 8px 18px; }
+.menu a { padding: 9px 12px; border-radius: 8px; color: var(--texte-2); text-decoration: none; font-size: 14px; }
+.menu a:hover { background: var(--fond); color: var(--texte); }
+.menu a.actif { background: var(--accent-doux); color: var(--accent); font-weight: 600; }
+.profil { margin-top: auto; display: flex; flex-direction: column; gap: 8px; padding: 8px; font-size: 13px; color: var(--texte-2); }
+.contenu { flex: 1; padding: 28px; min-width: 0; }
+
+@media (max-width: 760px) {
+  .layout { flex-direction: column; }
+  .menu { width: auto; flex-direction: row; flex-wrap: wrap; align-items: center; border-right: none; border-bottom: 1px solid var(--bordure); padding: 10px 16px; }
+  .marque { margin: 0 8px 0 0; }
+  .profil { margin: 0 0 0 auto; flex-direction: row; align-items: center; padding: 0; }
+  .contenu { padding: 16px; }
+}

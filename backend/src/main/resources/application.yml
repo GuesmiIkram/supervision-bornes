@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: supervision-bornes
+  datasource:
+    # Par défaut : base H2 en mémoire (aucune installation nécessaire).
+    # Avec Docker, ces valeurs sont remplacées par les variables d'environnement PostgreSQL.
+    url: ${DB_URL:jdbc:h2:mem:supervision;DB_CLOSE_DELAY=-1}
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    # À changer en production (32 caractères minimum)
+    secret: ${JWT_SECRET:changez-moi-cle-secrete-de-32-caracteres-min}
+    duree-heures: 8
+  cors:
+    origins: ${CORS_ORIGINS:http://localhost:4200}
+  simulation:
+    enabled: true
+    intervalle-ms: 10000

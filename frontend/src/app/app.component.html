@@ -1,0 +1,24 @@
+@if (auth.estConnecte()) {
+  <div class="layout">
+    <nav class="menu">
+      <div class="marque">⚡ <span>Supervision</span></div>
+      <a routerLink="/dashboard" routerLinkActive="actif">Tableau de bord</a>
+      <a routerLink="/bornes" routerLinkActive="actif">Bornes</a>
+      <a routerLink="/alarmes" routerLinkActive="actif">Alarmes</a>
+      <a routerLink="/mesures" routerLinkActive="actif">Mesures</a>
+      <a routerLink="/recharges" routerLinkActive="actif">Recharges</a>
+      @if (auth.estAdmin()) {
+        <a routerLink="/utilisateurs" routerLinkActive="actif">Utilisateurs</a>
+      }
+      <div class="profil">
+        <span>{{ auth.utilisateur() }}{{ auth.estAdmin() ? ' · admin' : '' }}</span>
+        <button class="btn" (click)="auth.logout()">Déconnexion</button>
+      </div>
+    </nav>
+    <main class="contenu">
+      <router-outlet />
+    </main>
+  </div>
+} @else {
+  <router-outlet />
+}
